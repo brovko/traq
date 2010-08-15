@@ -18,14 +18,14 @@
  * along with Traq. If not, see <http://www.gnu.org/licenses/>.
  */
 
-// Define BASEPATH as this files directory
-define('BASEPATH', dirname(__FILE__).'/');
-
-// Define the APPPATH
-define('APPPATH', BASEPATH.'traq/');
-
-// Fetch version file
-require(APPPATH.'version.php');
-
-// Include the Avalon framework core
-require(BASEPATH.'avalon/core.php');
+$database = array(
+	// To enable the database, change this to true.
+	'enable'	=> false,
+	// The driver to use.
+	'driver'	=> 'MySQL',
+	// The database information.
+	'server'	=> 'localhost',
+	'username'	=> 'root',
+	'password'	=> 'root',
+	'database'	=> 'traq'
+);

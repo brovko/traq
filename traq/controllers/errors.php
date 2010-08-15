@@ -18,14 +18,16 @@
  * along with Traq. If not, see <http://www.gnu.org/licenses/>.
  */
 
-// Define BASEPATH as this files directory
-define('BASEPATH', dirname(__FILE__).'/');
-
-// Define the APPPATH
-define('APPPATH', BASEPATH.'traq/');
-
-// Fetch version file
-require(APPPATH.'version.php');
-
-// Include the Avalon framework core
-require(BASEPATH.'avalon/core.php');
+class Errors extends Controller
+{
+	public function notFound()
+	{
+		global $controller, $method;
+		
+		$this->set('controller',$controller);
+		$this->set('method',$method);
+		
+		$this->view->load('errors/404');
+		$this->view->display();
+	}
+}

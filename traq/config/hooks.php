@@ -17,15 +17,3 @@
  * You should have received a copy of the GNU General Public License
  * along with Traq. If not, see <http://www.gnu.org/licenses/>.
  */
-
-// Define BASEPATH as this files directory
-define('BASEPATH', dirname(__FILE__).'/');
-
-// Define the APPPATH
-define('APPPATH', BASEPATH.'traq/');
-
-// Fetch version file
-require(APPPATH.'version.php');
-
-// Include the Avalon framework core
-require(BASEPATH.'avalon/core.php');
