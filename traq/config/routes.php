@@ -19,5 +19,20 @@
  */
 
 $routes = array(
-	'default' => 'project_list',
+	'default'	=> 'project_list',
+	'projects'	=> 'project_list',
+	
+	// Project routes
+	'p/:any/tickets'	=> 'tickets',
+	'p/:any/wiki'		=> 'wiki',
+	'p/:any'			=> 'project',
+	
+	// User routes
+	'user/login'	=> 'user/login',
+	'user/register'	=> 'user/register',
+	'user/cp'		=> 'user/cp',
+	
+	// Admin routes
+	'admincp/settings'	=> 'admincp/settings',
+	'admincp'			=> 'admincp'
 );

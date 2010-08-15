@@ -22,7 +22,14 @@ class Project_list extends Controller
 {
 	public function index()
 	{
-		$this->load->helper('html');
+		// Get projects
+		$projects = array();
+		$query = $this->db->select('traq_projects');
+		while($project = $this->db->fetch_array($query))
+			$projects[] = $project;
+		
+		$this->set('projects',$projects);
+		
 		$this->view->load('project_list');
 		$this->view->display();
 	}
