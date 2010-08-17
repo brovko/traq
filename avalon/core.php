@@ -41,8 +41,20 @@ $router = loadclass('router');
 $controller = $router->controller;
 $method = $router->method;
 
-// Load the controller
 $hooks->hook('pre_controller');
+
+// Check if an app controller exists
+if(file_exists(APPPATH.'appcontroller.php'))
+{
+	require(APPPATH.'appcontroller.php');
+}
+// There isnt..
+else
+{
+	class AppController extends Controller {}
+}
+
+// Load the controller
 if(file_exists(APPPATH.'controllers/'.$controller.'.php'))
 {
 	include(APPPATH.'controllers/'.$controller.'.php');
@@ -70,3 +82,5 @@ else
 $hooks->hook('post_controller');
 
 $hooks->hook('post_system');
+
+$avalon->view->display();

@@ -18,19 +18,16 @@
  * along with Traq. If not, see <http://www.gnu.org/licenses/>.
  */
 
-class Project_list extends Controller
+class Project_list extends AppController
 {
 	public function index()
 	{
 		// Get projects
 		$projects = array();
-		$query = $this->db->select('traq_projects');
-		while($project = $this->db->fetch_array($query))
-			$projects[] = $project;
+		$projects = $this->db->select('traq_projects');
 		
 		$this->set('projects',$projects);
 		
 		$this->view->load('project_list');
-		$this->view->display();
 	}
 }

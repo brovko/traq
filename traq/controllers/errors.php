@@ -18,7 +18,7 @@
  * along with Traq. If not, see <http://www.gnu.org/licenses/>.
  */
 
-class Errors extends Controller
+class Errors extends AppController
 {
 	public function notFound()
 	{
