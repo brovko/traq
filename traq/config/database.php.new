@@ -20,7 +20,7 @@
 
 $database = array(
 	// To enable the database, change this to true.
-	'enable'	=> false,
+	'enable'	=> true,
 	// The driver to use.
 	'driver'	=> 'MySQL',
 	// The database information.
