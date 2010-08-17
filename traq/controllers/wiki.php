@@ -18,23 +18,20 @@
  * along with Traq. If not, see <http://www.gnu.org/licenses/>.
  */
 
-$routes = array(
-	'default'	=> 'project_list',
-	'projects'	=> 'project_list',
+class Wiki extends AppController
+{
+	public function index()
+	{
+		$this->page('home');
+	}
 	
-	// Project routes
-	'p/:any/ticket-:num'	=> 'ticket',
-	'p/:any/tickets'		=> 'tickets',
-	'p/:any/wiki'			=> 'wiki',
-	'p/:any/wiki/:any'		=> 'wiki/page',
-	'p/:any' 				=> 'wiki',
-	
-	// User routes
-	'user/login'	=> 'user/login',
-	'user/register'	=> 'user/register',
-	'user/cp'		=> 'user/cp',
-	
-	// Admin routes
-	'admincp/settings'	=> 'admincp/settings',
-	'admincp'			=> 'admincp'
-);
+	public function page($slug='')
+	{
+		if($slug == '') $slug = $this->uri->seg[3];
+		
+		$fetch = $this->db->select('traq_wiki',array('where'=>array('project_id'=>$this->project['id'],'slug'=>$this->db->es($slug))));
+		
+		$this->set('page',$fetch[0]);
+		$this->view->load('wiki');
+	}
+}

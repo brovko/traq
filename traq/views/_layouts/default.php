@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>Traq / Traq</title>
+		<title><?php echo $page_title; ?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<style>
 		body {
@@ -84,6 +84,9 @@
 				<h1>Traq</h1>
 				<div id="nav">
 					<ul>
+					<?php if($this->project != null) { ?>
+					<li><?php echo $html->link($this->uri->anchor('p',$this->project['slug'],'wiki'),'Wiki'); ?></li>
+					<?php } ?>
 					<li></li>
 					</ul>
 				</div>
