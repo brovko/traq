@@ -18,15 +18,13 @@
  * along with Traq. If not, see <http://www.gnu.org/licenses/>.
  */
 
-class Errors extends AppController
+class Tickets extends AppController
 {
-	public function notFound()
+	public function index()
 	{
-		global $controller, $method;
+		$tickets = $this->db->select('traq_tickets',array('where'=>array('project_id'=>$this->project['id'])));
+		$this->set('tickets',$tickets);
 		
-		$this->set('controller',$controller);
-		$this->set('method',$method);
-		
-		$this->view->load('errors/404');
+		$this->view->load('tickets');
 	}
 }

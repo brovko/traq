@@ -81,13 +81,13 @@
 	<body>
 		<div id="wrapper">
 			<div id="header">
-				<h1>Traq</h1>
+				<h1><?php echo settings('title'); ?></h1>
 				<div id="nav">
 					<ul>
 					<?php if($this->project != null) { ?>
-					<li><?php echo $html->link($this->uri->anchor('p',$this->project['slug'],'wiki'),'Wiki'); ?></li>
+						<li><?php echo $html->link($this->uri->anchor('p',$this->project['slug'],'wiki'),l('Wiki')); ?></li>
+						<li><?php echo $html->link($this->uri->anchor('p',$this->project['slug'],'tickets'),l('Tickets')); ?></li>
 					<?php } ?>
-					<li></li>
 					</ul>
 				</div>
 			</div>
