@@ -24,8 +24,9 @@ $database = array(
 	// The driver to use.
 	'driver'	=> 'MySQL',
 	// The database information.
-	'server'	=> 'localhost',
-	'username'	=> 'root',
-	'password'	=> 'root',
-	'database'	=> 'traq'
+	'server'	=> 'localhost',	// Server
+	'username'	=> 'root',		// Username
+	'password'	=> 'root',		// Password
+	'database'	=> 'traq',		// Database name
+	'prefix'	=> 'traq_'		// Table prefix
 );
