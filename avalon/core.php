@@ -45,16 +45,13 @@ $hooks->hook('pre_controller');
 
 // Check if an app controller exists
 if(file_exists(APPPATH.'appcontroller.php'))
-{
 	require(APPPATH.'appcontroller.php');
-}
 // There isnt..
 else
-{
-	class AppController extends Controller {}
-}
+	require(BASEPATH.'avalon/appcontroller.php');
 
 // Load the controller
+$hooks->hook('pre_controller');
 if(file_exists(APPPATH.'controllers/'.$controller.'.php'))
 {
 	include(APPPATH.'controllers/'.$controller.'.php');
@@ -77,7 +74,6 @@ else
 	include(APPPATH.'controllers/errors.php');
 	$avalon = new Errors();
 	$avalon->notFound();
-	exit;
 }
 $hooks->hook('post_controller');
 

@@ -18,6 +18,10 @@
  * along with Avalon. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+ * Hook class
+ * @package Avalon
+ */
 class Hooks
 {
 	private $hooks = array();
@@ -31,7 +35,6 @@ class Hooks
 	}
 	
 	/**
-	 * Hook
 	 * Used to execute classes and/or functions linked to the specified hook.
 	 *
 	 * @param string $hook Name of the hook.
@@ -55,18 +58,18 @@ class Hooks
 	private function run_hook($data)
 	{
 		// Set class / function name
-		$class		= NULL;
-		$function	= NULL;
+		$class		= false;
+		$function	= false;
 		$params		= '';
 		
 		if(isset($data['class']) and $data['class'] != '') $class = $data['class'];
 		if(isset($data['function'])) $function = $data['function'];
 		if(isset($data['params'])) $params = $data['params'];
 		
-		if($class === false and $function === false) return false;
+		if(!$class and !$function) return false;
 		
 		// Execute the requested class and/or function
-		if($class !== false)
+		if($class)
 		{
 			if(!class_exists($class)) require(APPPATH.'hooks/'.$data['file']);
 			
