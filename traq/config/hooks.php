@@ -17,3 +17,9 @@
  * You should have received a copy of the GNU General Public License
  * along with Traq. If not, see <http://www.gnu.org/licenses/>.
  */
+
+$hooks['pre_controller'] = array(
+	'file' => 'traq.php',
+	'class' => '',
+	'function' => 'init_traq'
+);
