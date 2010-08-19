@@ -24,7 +24,7 @@ class Project_list extends AppController
 	{
 		// Get projects
 		$projects = array();
-		$projects = $this->db->select('traq_projects');
+		$projects = $this->db->select('projects');
 		
 		$this->set('projects',$projects);
 		

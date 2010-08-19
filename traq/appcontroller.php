@@ -28,7 +28,7 @@ class AppController extends Controller
 		
 		if(isset($this->uri->seg[1]) && $this->is_project($this->uri->seg[1]))
 		{
-			$this->project = $this->db->query_first("SELECT * FROM traq_projects WHERE slug='".$this->db->es($this->uri->seg[1])."' LIMIT 1");
+			$this->project = $this->db->query_first("SELECT * FROM ".$this->db->prefix."projects WHERE slug='".$this->db->es($this->uri->seg[1])."' LIMIT 1");
 		}
 		
 		$this->load->helper('html');
@@ -36,7 +36,7 @@ class AppController extends Controller
 	
 	public function is_project($slug)
 	{
-		if($this->db->num_rows($this->db->query("SELECT * FROM traq_projects WHERE slug='".$this->db->es($slug)."' LIMIT 1")))
+		if($this->db->num_rows($this->db->query("SELECT * FROM ".$this->db->prefix."projects WHERE slug='".$this->db->es($slug)."' LIMIT 1")))
 			return true;
 		
 		return false;

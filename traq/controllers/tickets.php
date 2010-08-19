@@ -22,7 +22,7 @@ class Tickets extends AppController
 {
 	public function index()
 	{
-		$tickets = $this->db->select('traq_tickets',array('where'=>array('project_id'=>$this->project['id'])));
+		$tickets = $this->db->select('tickets',array('where'=>array('project_id'=>$this->project['id'])));
 		$this->set('tickets',$tickets);
 		
 		$this->view->load('tickets');

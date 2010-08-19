@@ -29,7 +29,7 @@ class Wiki extends AppController
 	{
 		if($slug == '') $slug = $this->uri->seg[3];
 		
-		$fetch = $this->db->select('traq_wiki',array('where'=>array('project_id'=>$this->project['id'],'slug'=>$this->db->es($slug))));
+		$fetch = $this->db->select('wiki',array('where'=>array('project_id'=>$this->project['id'],'slug'=>$this->db->es($slug))));
 		
 		$this->set('page',$fetch[0]);
 		$this->view->load('wiki');

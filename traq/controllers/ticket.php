@@ -23,7 +23,7 @@ class Ticket extends AppController
 	public function index()
 	{
 		preg_match('/ticket-(?P<id>\d+)/',$this->uri->seg[2],$matches);
-		$ticket = $this->db->select('traq_tickets',array('where'=>array('ticket_id'=>$matches['id'],'project_id'=>$this->project['id']),'limit'=>1));
+		$ticket = $this->db->select('tickets',array('where'=>array('ticket_id'=>$matches['id'],'project_id'=>$this->project['id']),'limit'=>1));
 		
 		$this->set('ticket',$ticket[0]);
 		
