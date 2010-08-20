@@ -4,13 +4,13 @@
 		<table width="100%">
 		<tr>
 			<?php foreach($columns as $name) { ?>
-			<?php echo $helpers->tickets->column_header($name); ?>
+			<?php echo tickets_column_header($name); ?>
 			<?php } ?>
 		</tr>
 		<?php foreach($tickets as $ticket) { ?>
 			<tr>
 				<?php foreach($columns as $name) { ?>
-				<?php echo $helpers->tickets->column_content($name,$ticket); ?>
+				<?php echo tickets_column_content($name,$ticket); ?>
 				<?php } ?>
 			</tr>
 		<?php } ?>

@@ -18,52 +18,49 @@
  * along with Traq. If not, see <http://www.gnu.org/licenses/>.
  */
 
-class TicketsHelper
+function tickets_column_header($name,$before='<td>',$after='</td>')
 {
-	public function column_header($name,$before='<td>',$after='</td>')
+	$col = $before;
+	switch($name)
 	{
-		$col = $before;
-		switch($name)
-		{
-			case 'id':
-			case 'summary':
-			case 'status':
-				$col .= l(ucfirst($name));
-			break;
-			
-			default:
-			
-			break;
-		}
-		$col .= $after;
+		case 'id':
+		case 'summary':
+		case 'status':
+			$col .= l(ucfirst($name));
+		break;
 		
-		return $col;
+		default:
+		
+		break;
 	}
+	$col .= $after;
 	
-	public function column_content($name,$ticket,$before='<td>',$after='</td>')
+	return $col;
+}
+
+function tickets_column_content($name,$ticket,$before='<td>',$after='</td>')
+{
+	$avalon = getAvalon();
+	$project = $avalon->project;
+	
+	$col = $before;
+	switch($name)
 	{
-		$avalon = getAvalon();
-		$project = $avalon->project;
+		case 'id':
+			$col .= $ticket['ticket_id'];
+		break;
+		case 'summary':
+			$col .= link($avalon->uri->anchor('p',$project['slug'],'ticket-'.$ticket['id']),$ticket['summary']);
+		break;
+		case 'status':
+			$col .= $ticket['status'];
+		break;
 		
-		$col = $before;
-		switch($name)
-		{
-			case 'id':
-				$col .= $ticket['ticket_id'];
-			break;
-			case 'summary':
-				$col .= $this->html->link($this->uri->anchor('p',$project['slug'],'ticket-'.$ticket['id']),$ticket['summary']);
-			break;
-			case 'status':
-				$col .= $ticket['status'];
-			break;
-			
-			default:
-			
-			break;
-		}
-		$col .= $after;
+		default:
 		
-		return $col;
+		break;
 	}
+	$col .= $after;
+	
+	return $col;
 }
