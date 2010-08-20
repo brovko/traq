@@ -27,6 +27,6 @@ class Ticket extends AppController
 		
 		$this->set('ticket',$ticket[0]);
 		
-		$this->view->load('ticket');
+		$this->load->view('ticket');
 	}
 }

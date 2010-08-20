@@ -81,12 +81,12 @@
 	<body>
 		<div id="wrapper">
 			<div id="header">
-				<h1><?php echo settings('title'); ?></h1>
+				<h1><?php echo ($project['id'] ? $project['name'] : settings('title')); ?></h1>
 				<div id="nav">
 					<ul>
-					<?php if($this->project != null) { ?>
-						<li><?php echo $html->link($this->uri->anchor('p',$this->project['slug'],'wiki'),l('Wiki')); ?></li>
-						<li><?php echo $html->link($this->uri->anchor('p',$this->project['slug'],'tickets'),l('Tickets')); ?></li>
+					<?php if($project != null) { ?>
+						<li><?php echo $helpers->html->link($this->uri->anchor('p',$project['slug'],'wiki'),l('Wiki')); ?></li>
+						<li><?php echo $helpers->html->link($this->uri->anchor('p',$project['slug'],'tickets'),l('Tickets')); ?></li>
 					<?php } ?>
 					</ul>
 				</div>

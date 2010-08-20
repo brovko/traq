@@ -28,6 +28,6 @@ class Project_list extends AppController
 		
 		$this->set('projects',$projects);
 		
-		$this->view->load('project_list');
+		$this->load->view('project_list');
 	}
 }

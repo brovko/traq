@@ -29,6 +29,7 @@ class AppController extends Controller
 		if(isset($this->uri->seg[1]) && $this->is_project($this->uri->seg[1]))
 		{
 			$this->project = $this->db->query_first("SELECT * FROM ".$this->db->prefix."projects WHERE slug='".$this->db->es($this->uri->seg[1])."' LIMIT 1");
+			$this->set('project',$this->project);
 		}
 		
 		$this->load->helper('html');

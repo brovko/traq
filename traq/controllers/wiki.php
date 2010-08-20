@@ -32,6 +32,6 @@ class Wiki extends AppController
 		$fetch = $this->db->select('wiki',array('where'=>array('project_id'=>$this->project['id'],'slug'=>$this->db->es($slug))));
 		
 		$this->set('page',$fetch[0]);
-		$this->view->load('wiki');
+		$this->load->view('wiki');
 	}
 }

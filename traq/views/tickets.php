@@ -2,10 +2,16 @@
 	<h2><?php echo l('Tickets'); ?></h2>
 	<p>
 		<table width="100%">
+		<tr>
+			<?php foreach($columns as $name) { ?>
+			<?php echo $helpers->tickets->column_header($name); ?>
+			<?php } ?>
+		</tr>
 		<?php foreach($tickets as $ticket) { ?>
 			<tr>
-				<td><?php echo $ticket['id']; ?></td>
-				<td><?php echo $html->link($this->uri->anchor('p',$this->project['slug'],'ticket-'.$ticket['ticket_id']),$ticket['summary']); ?></td>
+				<?php foreach($columns as $name) { ?>
+				<?php echo $helpers->tickets->column_content($name,$ticket); ?>
+				<?php } ?>
 			</tr>
 		<?php } ?>
 		</table>

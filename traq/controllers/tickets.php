@@ -22,9 +22,19 @@ class Tickets extends AppController
 {
 	public function index()
 	{
+		$this->load->helper('tickets');
+		
 		$tickets = $this->db->select('tickets',array('where'=>array('project_id'=>$this->project['id'])));
 		$this->set('tickets',$tickets);
 		
-		$this->view->load('tickets');
+		$columns = array(
+			'id',
+			'summary',
+			'status',
+			'priority',
+		);
+		$this->set('columns',$columns);
+		
+		$this->load->view('tickets');
 	}
 }
