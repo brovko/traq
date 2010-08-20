@@ -29,7 +29,7 @@ class HTMLHelper
 	 */
 	public function link($url,$label,$opts=array())
 	{
-		return '<a href="'.$url.'"'.($ops['title'] ? '' : ' title="'.$ops['class'].'"').($ops['class'] ? '' : ' class="'.$opts['class'].'"').'>'.$label.'</a>';
+		return '<a href="'.$url.'"'.($opts['title'] ? ' title="'.$ops['class'].'"' : '').($opts['class'] ? ' class="'.$opts['class'].'"' : '').'>'.$label.'</a>';
 	}
 	
 	/**

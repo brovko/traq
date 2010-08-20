@@ -44,6 +44,8 @@ class Loader
 	{
 		$avalon = getAvalon();
 		
+		$this->uri =& $avalon->uri;
+		
 		// Make helpers easily accessible.
 		$helpers = (object)'helpers';
 		foreach($this->helpers as $helper_name => $helper)
