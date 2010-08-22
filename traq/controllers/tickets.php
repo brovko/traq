@@ -22,9 +22,10 @@ class Tickets extends AppController
 {
 	public function index()
 	{
+		$this->load->model('tickets');
 		$this->load->helper('tickets');
 		
-		$tickets = $this->db->select('tickets',array('where'=>array('project_id'=>$this->project['id'])));
+		$tickets = $this->tickets->get();
 		$this->set('tickets',$tickets);
 		
 		$columns = array(
@@ -32,6 +33,8 @@ class Tickets extends AppController
 			'summary',
 			'status',
 			'priority',
+			'milestone',
+			'assigned_to'
 		);
 		$this->set('columns',$columns);
 		

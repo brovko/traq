@@ -26,6 +26,9 @@ function tickets_column_header($name,$before='<td>',$after='</td>')
 		case 'id':
 		case 'summary':
 		case 'status':
+		case 'milestone':
+		case 'version':
+		case 'assigned_to':
 			$col .= l(ucfirst($name));
 		break;
 		
@@ -53,7 +56,16 @@ function tickets_column_content($name,$ticket,$before='<td>',$after='</td>')
 			$col .= link($avalon->uri->anchor('p',$project['slug'],'ticket-'.$ticket['id']),$ticket['summary']);
 		break;
 		case 'status':
-			$col .= $ticket['status'];
+			$col .= $ticket['status']['name'];
+		break;
+		case 'milestone':
+			$col .= $ticket['milestone']['milestone'];
+		break;
+		case 'version':
+			$col .= $ticket['version']['version'];
+		break;
+		case 'assigned_to':
+			$col .= $ticket['assigned_to']['username'];
 		break;
 		
 		default:
