@@ -26,6 +26,7 @@ function tickets_column_header($name,$before='<td>',$after='</td>')
 		case 'id':
 		case 'summary':
 		case 'status':
+		case 'priority':
 		case 'milestone':
 		case 'version':
 		case 'assigned_to':
@@ -57,6 +58,9 @@ function tickets_column_content($name,$ticket,$before='<td>',$after='</td>')
 		break;
 		case 'status':
 			$col .= $ticket['status']['name'];
+		break;
+		case 'priority':
+			$col .= $ticket['priority']['name'];
 		break;
 		case 'milestone':
 			$col .= $ticket['milestone']['milestone'];
