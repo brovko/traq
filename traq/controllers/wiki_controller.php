@@ -18,7 +18,7 @@
  * along with Traq. If not, see <http://www.gnu.org/licenses/>.
  */
 
-class Wiki extends AppController
+class WikiController extends AppController
 {
 	public function index()
 	{

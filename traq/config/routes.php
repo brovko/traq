@@ -23,7 +23,7 @@ $routes = array(
 	'projects'	=> 'project_list',
 	
 	// Project routes
-	'p/:any/ticket-:num'	=> 'ticket',
+	'p/:any/ticket-:num'	=> 'view_ticket',
 	'p/:any/tickets'		=> 'tickets',
 	'p/:any/wiki'			=> 'wiki',
 	'p/:any/wiki/:any'		=> 'wiki/page',

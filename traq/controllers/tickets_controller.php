@@ -18,7 +18,7 @@
  * along with Traq. If not, see <http://www.gnu.org/licenses/>.
  */
 
-class Tickets extends AppController
+class TicketsController extends AppController
 {
 	public function index()
 	{

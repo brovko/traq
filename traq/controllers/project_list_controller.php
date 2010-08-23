@@ -18,7 +18,7 @@
  * along with Traq. If not, see <http://www.gnu.org/licenses/>.
  */
 
-class Project_list extends AppController
+class ProjectListController extends AppController
 {
 	public function index()
 	{
