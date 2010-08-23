@@ -55,13 +55,14 @@ else
 
 // Load the controller
 $hooks->hook('pre_controller');
-if(file_exists(APPPATH.'controllers/'.$controller.'.php'))
+if(file_exists(APPPATH.'controllers/'.$controller.'_controller.php'))
 {
-	include(APPPATH.'controllers/'.$controller.'.php');
+	include(APPPATH.'controllers/'.$controller.'_controller.php');
 	
 	// Check if the method exists..
 	if(method_exists($controller,$method))
 	{
+		$controller_name = str_replace('_','',$controller).'Controller';
 		$avalon = new $controller();
 		$avalon->$method();
 	}
