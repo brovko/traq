@@ -85,8 +85,8 @@
 				<div id="nav">
 					<ul>
 					<?php if($project != null) { ?>
-						<li><?php echo link($this->uri->anchor('p',$project['slug'],'wiki'),l('Wiki')); ?></li>
-						<li><?php echo link($this->uri->anchor('p',$project['slug'],'tickets'),l('Tickets')); ?></li>
+						<li><?php echo alink($this->uri->anchor('p',$project['slug'],'wiki'),l('Wiki')); ?></li>
+						<li><?php echo alink($this->uri->anchor('p',$project['slug'],'tickets'),l('Tickets')); ?></li>
 					<?php } ?>
 					</ul>
 				</div>

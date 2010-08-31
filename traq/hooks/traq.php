@@ -37,7 +37,7 @@ function settings($setting)
 	
 	// Looks like the setting isn't in the cache,
 	// lets fetch it now...
-	$result = $db->query_first("SELECT * FROM traq_settings WHERE setting='".$db->es($setting)."' LIMIT 1");
+	$result = $db->query_first("SELECT * FROM ".$db->prefix."settings WHERE setting='".$db->es($setting)."' LIMIT 1");
 	$CACHE['settings'][$setting] = $result['value'];
 	
 	return $CACHE['settings'][$setting];

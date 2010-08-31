@@ -54,7 +54,7 @@ function tickets_column_content($name,$ticket,$before='<td>',$after='</td>')
 			$col .= $ticket['ticket_id'];
 		break;
 		case 'summary':
-			$col .= link($avalon->uri->anchor('p',$project['slug'],'ticket-'.$ticket['id']),$ticket['summary']);
+			$col .= anchor(array('p',$project['slug'],'ticket-'.$ticket['id']),$ticket['summary']);
 		break;
 		case 'status':
 			$col .= $ticket['status']['name'];
