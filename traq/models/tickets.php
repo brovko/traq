@@ -42,4 +42,22 @@ class TicketsModel
 		
 		return $tickets;
 	}
+	
+	public function find($args)
+	{
+		$ticket = $this->db->select('tickets',$args);
+		$ticket = $ticket[0];
+		$status = $this->db->select('ticket_status',array('where'=>array('id'=>$ticket['status'])));
+		$ticket['status'] = $status[0];
+		$priority = $this->db->select('priorities',array('where'=>array('id'=>$ticket['priority'])));
+		$ticket['priority'] = $priority[0];
+		$milestone = $this->db->select('milestones',array('where'=>array('id'=>$ticket['milestone_id'])));
+		$ticket['milestone'] = $milestone[0];
+		$version = $this->db->select('versions',array('where'=>array('id'=>$ticket['version_id'])));
+		$ticket['version'] = $version[0];
+		$assigned_to = $this->db->select('users',array('where'=>array('id'=>$ticket['assigned_to'])));
+		$ticket['assigned_to'] = $assigned_to[0];
+		
+		return $ticket;
+	}
 }

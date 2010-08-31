@@ -22,10 +22,11 @@ class ViewTicketController extends AppController
 {
 	public function index()
 	{
+		$this->load->model('tickets');
 		preg_match('/ticket-(?P<id>\d+)/',$this->uri->seg[2],$matches);
-		$ticket = $this->db->select('tickets',array('where'=>array('ticket_id'=>$matches['id'],'project_id'=>$this->project['id']),'limit'=>1));
+		$ticket = $this->tickets->find(array('where'=>array('project_id'=>$this->project['id'],'ticket_id'=>$matches['id'])));
 		
-		$this->set('ticket',$ticket[0]);
+		$this->set('ticket',$ticket);
 		
 		$this->load->view('ticket');
 	}
