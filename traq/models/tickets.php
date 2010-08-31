@@ -18,8 +18,15 @@
  * along with Traq. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+ * @package Traq
+ */
 class TicketsModel
 {
+	/**
+	 * Get all tickets
+	 * @return array
+	 */
 	public function get()
 	{
 		$tickets = array();
@@ -43,6 +50,11 @@ class TicketsModel
 		return $tickets;
 	}
 	
+	/**
+	 * Find ticket
+	 * @param array $args Arguments for the query.
+	 * @return array
+	 */
 	public function find($args)
 	{
 		$ticket = $this->db->select('tickets',$args);
