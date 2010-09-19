@@ -32,7 +32,7 @@ class Output
 	 *
 	 * @param string $layout The layout file in which to use.
 	 */
-	public function display()
+	public function display($layout='')
 	{
 		global $avalon;
 		$this->uri = $avalon->uri;
@@ -63,7 +63,7 @@ class Output
 		{
 			if(isset($_SERVER['HTTP_ACCEPT_ENCODING']) and strpos($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') !== false)
 			{
-				ob_start('ob_gzhandler');
+				ob_start();//('ob_gzhandler');
 			}
 		}
 		

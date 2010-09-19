@@ -81,10 +81,10 @@
 	<body>
 		<div id="wrapper">
 			<div id="header">
-				<h1><?php echo ($project['id'] ? $project['name'] : settings('title')); ?></h1>
+				<h1><?php echo (isset($project) ? $project['name'] : settings('title')); ?></h1>
 				<div id="nav">
 					<ul>
-					<?php if($project != null) { ?>
+					<?php if(isset($project)) { ?>
 						<li><?php echo alink($this->uri->anchor('p',$project['slug'],'wiki'),l('Wiki')); ?></li>
 						<li><?php echo alink($this->uri->anchor('p',$project['slug'],'tickets'),l('Tickets')); ?></li>
 					<?php } ?>
